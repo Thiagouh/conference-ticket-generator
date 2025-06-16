@@ -1,0 +1,210 @@
+@import "./fonts.css";
+
+:root {
+  --neutral-0: hsl(0, 0%, 100%);
+  --neutral-300: hsl(252, 6%, 83%);
+  --neutral-500: hsl(245, 15%, 58%, 0.5);
+  --neutral-700: hsl(245, 19%, 35%, 0.5);
+  --neutral-900: hsl(248, 70%, 10%);
+  --orange-500: hsl(7, 88%, 67%);
+  --orange-700: hsl(7, 86%, 67%);
+  --gradient-text: linear-gradient(
+    90deg,
+    hsl(7, 86%, 67%) 0%,
+    hsl(0, 0%, 100%) 100%
+  );
+  --font-size-label: 20px;
+  --font-family: Inconsolata;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-family), sans-serif;
+  color: var(--neutral-0);
+  background-image: url("../assets/images/pattern-lines.svg"),
+    url("../assets/images/pattern-circle.svg"),
+    url("../assets/images/pattern-squiggly-line-top.svg"),
+    url("../assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+    url("../assets/images/background-desktop.png");
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: auto, 15rem, 20%, 60%, cover;
+  background-position: center top, 70% 50%, 100% 3%, bottom left, center top;
+}
+
+#form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__title {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--neutral-0);
+}
+
+.hero__subtitle {
+  width: 80%;
+  margin: 1rem 0;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__avatar-upload {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__avatar-dropzone {
+  position: relative;
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--neutral-500);
+  border-radius: 0.7rem;
+  background-color: var(--neutral-700);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.avatar-upload__input {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.avatar-upload__icon {
+  padding: 0.5rem;
+  margin-bottom: 1.1rem;
+  border: 1px solid var(--neutral-500);
+  border-radius: 0.5rem;
+  background-color: var(--neutral-500);
+}
+
+.form__avatar-info {
+  display: flex;
+  align-self: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.form__group-fullname,
+.form__group-email,
+.form__group-github,
+.form__submit {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__label {
+  margin: 0.5rem 0;
+  align-self: flex-start;
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  color: var(--neutral-0);
+}
+
+.form__group-fullname input,
+.form__group-email input,
+.form__group-github input {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  border: solid 1px var(--neutral-500);
+  border-radius: 0.7rem;
+  background-color: var(--neutral-700);
+}
+
+.form__submit {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 5px solid var(--orange-700);
+  border-radius: 0.7rem;
+  background-color: var(--orange-500);
+  color: var(--neutral-900);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  body {
+    background-image: url("../assets/images/pattern-lines.svg"),
+      url("../assets/images/pattern-circle.svg"),
+      url("../assets/images/pattern-squiggly-line-top.svg"),
+      url("../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+      url("../assets/images/background-mobile.png");
+    background-size: auto, 8rem, 25%, 60%, cover;
+  }
+
+  .welcome h1 {
+    width: 80%;
+    font-size: 2rem;
+  }
+
+  .form__avatar-upload,
+  .form__group-fullname,
+  .form__group-email,
+  .form__group-github,
+  .form__submit {
+    width: 90%;
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    background-image: url("../assets/images/pattern-lines.svg"),
+      url("../assets/images/pattern-circle.svg"),
+      url("../assets/images/pattern-squiggly-line-top.svg"),
+      url("../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+      url("../assets/images/background-mobile.png");
+    background-size: auto, 8rem, 20%, 60%, cover;
+  }
+
+  .welcome h1 {
+    width: 90%;
+    font-size: 1.7rem;
+  }
+
+  .form__avatar-upload,
+  .form__group-fullname,
+  .form__group-email,
+  .form__group-github,
+  .form__submit {
+    width: 90%;
+  }
+}

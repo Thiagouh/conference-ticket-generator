@@ -11,28 +11,48 @@
     />
     <title>Frontend Mentor | Conference ticket generator</title>
     <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
     <!-- Form starts -->
     <div id="form-container">
-      <div class="welcome">
+      <!-- Introduction -->
+      <div class="hero">
         <img src="./assets/images/logo-full.svg" alt="Logo Full" />
-        <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
-        <p >Secure your spot at next year's biggest coding conference.</p>
+        <h1 class="hero__title">
+          Your Journey to Coding Conf 2025 Starts Here!
+        </h1>
+        <p class="hero__subtitle">
+          Secure your spot at next year's biggest coding conference.
+        </p>
       </div>
-      <form>
-        <div class="avatar-upload">
-          <label for="avatar">Upload Avatar</label>
-          <div>
-            <input type="file" id="avatar" name="avatar" accept=".jpg, .png" />
-            <img src="./assets/images/icon-upload.svg" alt="Upload Icon" />
+      <form class="form">
+        <!-- Form avatar dropzone -->
+        <div class="form__avatar-upload">
+          <label class="form__label" for="avatar">Upload Avatar</label>
+          <div class="form__avatar-dropzone" id="avatarDropzone">
+            <input
+              class="avatar-upload__input"
+              type="file"
+              id="avatarInput"
+              name="avatar"
+            />
+            <img
+              class="avatar-upload__icon"
+              src="./assets/images/icon-upload.svg"
+              alt="Upload Icon"
+            />
             <p>Drag and drop or click to upload</p>
           </div>
-          <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+          <div class="form__avatar-info">
+            <img src="./assets/images/icon-info.svg" alt="Icon Info" />
+            <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="full-name">Full Name</label>
+
+        <!-- Generic form fields -->
+        <div class="form__group-fullname">
+          <label class="form__label" for="full-name">Full Name</label>
           <input
             type="text"
             id="full-name"
@@ -41,8 +61,8 @@
             required
           />
         </div>
-        <div class="email-address">
-          <label for="email">Email Address</label>
+        <div class="form__group-email">
+          <label class="form__label" for="email">Email Address</label>
           <input
             type="email"
             id="email"
@@ -50,8 +70,8 @@
             placeholder="example@email.com"
           />
         </div>
-        <div class="github-username">
-          <label for="github">Github Username</label>
+        <div class="form__group-github">
+          <label class="form__label" for="github">Github Username</label>
           <input
             type="text"
             id="github"
@@ -59,7 +79,7 @@
             placeholder="@yourusername"
           />
         </div>
-        <button type="submit">Generate My Ticket</button>
+        <button class="form__submit" type="submit">Generate My Ticket</button>
       </form>
     </div>
     <!-- Form ends -->
@@ -101,5 +121,7 @@
       </div>
     </div>
     <!-- Generated tickets ends -->
+
+    <script src="./main.js"></script>
   </body>
 </html>

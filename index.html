@@ -11,7 +11,7 @@
     />
     <title>Frontend Mentor | Conference ticket generator</title>
     <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
@@ -38,11 +38,14 @@
               id="avatarInput"
               name="avatar"
             />
-            <img
-              class="avatar-upload__icon"
-              src="./assets/images/icon-upload.svg"
-              alt="Upload Icon"
-            />
+            <span class="avatar-upload__imgContainer">
+              <img
+                class="avatar-upload__icon"
+                id="avatarIcon"
+                src="./assets/images/icon-upload.svg"
+                alt="Upload Icon"
+              />
+            </span>
             <p>Drag and drop or click to upload</p>
           </div>
           <div class="form__avatar-info">

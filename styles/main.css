@@ -101,12 +101,16 @@ body {
   cursor: pointer;
 }
 
-.avatar-upload__icon {
-  padding: 0.5rem;
+.avatar-upload__imgContainer {
   margin-bottom: 1.1rem;
-  border: 1px solid var(--neutral-500);
-  border-radius: 0.5rem;
-  background-color: var(--neutral-500);
+  padding: 0.5rem;
+  background-color: var(--neutral-700);
+  border-radius: 5px;
+  /* CONTINUAR AJUSTANDO O CSS DO ICON */
+}
+
+.avatar-upload__icon {
+  max-height: 3rem;
 }
 
 .form__avatar-info {

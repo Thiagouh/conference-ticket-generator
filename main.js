@@ -1,7 +1,7 @@
 const avatarDropzone = document.getElementById("avatarDropzone");
 const avatarInput = document.getElementById("avatarInput");
 const avatarPreview = document.querySelector("#avatarDropzone img");
-const avatarIcon = document.querySelector(".avatar-upload__icon");
+const avatarIcon = document.getElementById("avatarIcon");
 
 function logError(message, ...args) {
   console.log(`[ERROR] [${new Date().toISOString}: ${message}]`, ...args);
@@ -15,7 +15,8 @@ avatarDropzone.addEventListener("drop", (e) => {
 
   if (file.type.startsWith("image/")) {
     reader.onloadend = () => {
-      avatarPreview.src = reader.result;
+      avatarIcon.src = reader.result;
+      console.log("Succesfull!");
     }
     reader.onerror = () => {
       logError("Error rendering image", reader.error);

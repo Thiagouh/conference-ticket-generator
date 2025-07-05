@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
-    <!-- Form starts -->
     <div id="form-container">
-      <!-- Introduction -->
       <div class="hero">
         <img src="./assets/images/logo-full.svg" alt="Logo Full" />
         <h1 class="hero__title">
@@ -28,10 +26,9 @@
         </p>
       </div>
       <form class="form">
-        <!-- Form avatar dropzone -->
-        <div class="form__avatar-upload">
+        <div class="avatar-upload">
           <label class="form__label" for="avatarInput">Upload Avatar</label>
-          <div class="form__avatar-dropzone" id="avatarDropzone">
+          <div class="avatar-upload__dropzone" id="avatarDropzone">
             <input
               class="avatar-upload__input"
               type="file"
@@ -46,15 +43,15 @@
                 alt="Upload Icon"
               />
             </span>
-            <p>Drag and drop or click to upload</p>
+            <p class="avatar-upload__placeholder">Drag and drop or click to upload</p>
+            <span class="avatar-upload__actions"></span>
           </div>
-          <div class="form__avatar-info">
+          <div class="avatar-upload__info">
             <img src="./assets/images/icon-info.svg" alt="Icon Info" />
             <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
           </div>
         </div>
 
-        <!-- Generic form fields -->
         <div class="form__group-fullname">
           <label class="form__label" for="full-name">Full Name</label>
           <input
@@ -86,9 +83,6 @@
         <button class="form__submit" type="submit">Generate My Ticket</button>
       </form>
     </div>
-    <!-- Form ends -->
-
-    <!-- Generated tickets starts -->
     <div id="ticket-container" class="hidden">
       <div class="congratulations">
         <img src="./assets/images/logo.svg" alt="Logo" />
@@ -99,33 +93,31 @@
         <img
           src="./assets/images/pattern-ticket.svg"
           alt="Ticket"
-          class="ticket-pattern"
+          class="ticket__pattern"
         />
-        <div class="ticket-info">
-          <div class="ticket-header">
+        <div class="ticket__info">
+          <div class="ticket__header">
             <h2>Coding Conf</h2>
             <p>Jan 31, 2025 / Austin, TX</p>
           </div>
-          <div class="ticket-body">
+          <div class="ticket__body">
             <img
               src="./assets/images/image-avatar.jpg"
               alt="Avatar"
-              class="avatar"
+              class="ticket__avatar"
             />
-            <div class="ticket-details">
-              <h3><!-- Full Name --></h3>
-              <p><!-- Email Address --></p>
-              <p><!-- Github Username --></p>
+            <div class="ticket__details">
+              <h3></h3>
+              <p></p>
+              <p></p>
             </div>
-            <div class="ticket-code">
-              <p><!-- Code --></p>
+            <div class="ticket__code">
+              <p></p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Generated tickets ends -->
-
     <script src="./main.js"></script>
   </body>
 </html>

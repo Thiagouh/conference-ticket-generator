@@ -1,29 +1,84 @@
-const avatarDropzone = document.getElementById("avatarDropzone");
-const avatarInput = document.getElementById("avatarInput");
-const avatarPreview = document.querySelector("#avatarDropzone img");
-const avatarIcon = document.getElementById("avatarIcon");
+const avatarDropzone = document.querySelector("#avatarDropzone");
+/** @type {HTMLInputElement | null} */
+const avatarInput = document.querySelector("#avatarInput");
+const avatarIcon = document.querySelector("#avatarIcon");
+const avatarActions = document.querySelector(".avatar-upload__actions");
+const avatarInfo = document.querySelector(".avatar-upload__placeholder");
 
 function logError(message, ...args) {
   console.log(`[ERROR] [${new Date().toISOString}: ${message}]`, ...args);
 }
 
-avatarDropzone.addEventListener("drop", (e) => {
-  e.preventDefault();
+function handleFileSelect(file) {
+  if (file && file.type.startsWith("image/")) {
+    const reader = new FileReader();
 
-  const reader = new FileReader();
-  const file = e.dataTransfer.files[0];
-
-  if (file.type.startsWith("image/")) {
     reader.onloadend = () => {
-      avatarIcon.src = reader.result;
-      console.log("Succesfull!");
-    }
+      updateUiToImageState(reader.result);
+    };
+
     reader.onerror = () => {
       logError("Error rendering image", reader.error);
-    }
+    };
 
     reader.readAsDataURL(file);
   } else {
     logError("The file must be of image type");
   }
+}
+
+function updateUiToImageState(imageData) {
+  avatarIcon.src = imageData;
+
+  avatarInfo.classList.add("hidden");
+  avatarInput.style.display = "none";
+  setupActionButtons();
+}
+
+function resetUiToInitialState() {
+  avatarIcon.src = "./assets/images/icon-upload.svg";
+  avatarInfo.classList.remove("hidden");
+
+  avatarActions.innerHTML = "";
+
+  avatarInput.style.display = "initial";
+}
+
+function setupActionButtons() {
+  avatarActions.innerHTML = "";
+
+  const changeButton = document.createElement("button");
+  const removeButton = document.createElement("button");
+
+  changeButton.textContent = "Change image";
+  removeButton.textContent = "Remove button";
+  changeButton.classList.add(
+    "avatar-upload__button",
+    "avatar-upload__button--change"
+  );
+  removeButton.classList.add(
+    "avatar-upload__button",
+    "avatar-upload__button--remove"
+  );
+
+  changeButton.addEventListener("click", () => avatarInput.click());
+  removeButton.addEventListener("click", () => resetUiToInitialState());
+
+  avatarActions.appendChild(changeButton);
+  avatarActions.appendChild(removeButton);
+}
+
+avatarInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  handleFileSelect(file);
+});
+
+avatarDropzone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  const file = e.target.files[0];
+  handleFileSelect(file);
+});
+
+avatarDropzone.addEventListener("dragover", (e) => {
+  e.preventDefault();
 });

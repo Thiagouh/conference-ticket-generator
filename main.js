@@ -82,4 +82,3 @@ avatarDropzone.addEventListener("drop", (e) => {
 avatarDropzone.addEventListener("dragover", (e) => {
   e.preventDefault();
 });
-

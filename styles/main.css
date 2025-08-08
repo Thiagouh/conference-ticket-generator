@@ -82,6 +82,7 @@ body {
 .avatar-upload__dropzone {
   position: relative;
   width: 100%;
+  height: 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,10 +91,6 @@ body {
   border-radius: 0.7rem;
   background-color: var(--neutral-700);
   transition: background-color 0.3s ease-in-out;
-}
-
-.avatar-upload__dropzone:hover {
-  background-color: var(--neutral-500);
 }
 
 .avatar-upload__placeholder {
@@ -109,23 +106,14 @@ body {
 }
 
 .avatar-upload__imgContainer {
-  height: 3.2rem;
-  width: 3.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 1rem;
-  border: 1px solid var(--neutral-500);
+  padding: 0.5rem;
   border-radius: 0.7rem;
   background-color: var(--neutral-700);
-  overflow: hidden;
 }
 
 .avatar-upload__icon {
-  width: 100%;
-  height: 100%;
-  border-radius: 0.7rem;
-  object-fit: cover;
+  max-height: 2rem;
 }
 
 .avatar-upload__actions {
@@ -141,13 +129,10 @@ body {
   border-radius: 5px;
   color: var(--neutral-0);
   background-color: var(--neutral-700);
-  transition: background-color 0.3s ease-in-out;
 }
 
 .avatar-upload__button:hover {
   text-decoration: underline;
-  background-color: var(--neutral-900);
-  cursor: pointer;
 }
 
 .avatar-upload__info {
@@ -188,13 +173,6 @@ body {
   font-size: large;
   color: var(--neutral-0);
   background-color: var(--neutral-700);
-  transition: background-color ;
-}
-
-.form__group-fullname input:hover,
-.form__group-email input:hover,
-.form__group-github input:hover {
-  background-color: var(--neutral-500);
 }
 
 .form__submit {

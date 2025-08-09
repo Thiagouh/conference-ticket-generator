@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
-    <div id="form-container">
+    <div class="form-container">
       <div class="hero">
         <img src="./assets/images/logo-full.svg" alt="Logo Full" />
         <h1 class="hero__title">
@@ -25,7 +25,7 @@
           Secure your spot at next year's biggest coding conference.
         </p>
       </div>
-      <form class="form">
+      <form id="form">
         <div class="avatar-upload">
           <label class="form__label" for="avatarInput">Upload Avatar</label>
           <div class="avatar-upload__dropzone" id="avatarDropzone">
@@ -87,7 +87,7 @@
         <button class="form__submit" type="submit">Generate My Ticket</button>
       </form>
     </div>
-    <div id="ticket-container" class="hidden">
+    <div class="ticket-container" class="hidden">
       <div class="congratulations">
         <img src="./assets/images/logo.svg" alt="Logo" />
         <h1>Congratulations!</h1>

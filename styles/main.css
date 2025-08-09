@@ -1,3 +1,7 @@
+/* =============================================
+   GENERAL STYLES AND VARIABLES
+   ============================================= */
+
 @import "./fonts.css";
 
 :root {
@@ -37,7 +41,15 @@ body {
   background-position: center top, 70% 50%, 100% 3%, bottom left, center top;
 }
 
-#form-container {
+.hidden {
+  display: none;
+}
+
+/* =============================================
+   TICKET FORM STYLE
+   ============================================= */
+
+.form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +76,7 @@ body {
   margin: 1rem 0;
 }
 
-.form {
+#form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -208,9 +220,17 @@ body {
   background-color: var(--orange-500);
 }
 
-.hidden {
-  display: none;
+/* =============================================
+   GENERATED TICKET STYLE
+   ============================================= */
+
+.ticket-container {
+  display: hidden;
 }
+
+/* =============================================
+   MEDIA QUERYS
+   ============================================= */
 
 @media (min-width: 376px) and (max-width: 768px) {
   body {

@@ -1,9 +1,20 @@
+const form = document.querySelector("#form");
+const formContainer = document.querySelector(".form-container");
+const username = document.querySelector("#full-name");
+const email = document.querySelector("#email");
+const github = document.querySelector("#github");
 const avatarDropzone = document.querySelector("#avatarDropzone");
 /** @type {HTMLInputElement | null} */
 const avatarInput = document.querySelector("#avatarInput");
 const avatarIcon = document.querySelector("#avatarIcon");
 const avatarActions = document.querySelector(".avatar-upload__actions");
 const avatarInfo = document.querySelector(".avatar-upload__placeholder");
+const ticketContainer = document.querySelector(".ticket-container");
+const congratsUsername = document.querySelector(".congratulations__username");
+const ticketUsername = document.querySelector(".ticket__username");
+const ticketGithub = document.querySelector(".ticket__username-github");
+const ticketAvatar = document.querySelector(".ticket__avatar");
+let userAvatarData = null;
 
 function logError(message, ...args) {
   console.log(`[ERROR] [${new Date().toISOString}: ${message}]`, ...args);
@@ -14,7 +25,8 @@ function handleFileSelect(file) {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      updateUiToImageState(reader.result);
+      userAvatarData = reader.result;
+      updateUiToImageState(userAvatarData);
     };
 
     reader.onerror = () => {
@@ -81,4 +93,36 @@ avatarDropzone.addEventListener("drop", (e) => {
 
 avatarDropzone.addEventListener("dragover", (e) => {
   e.preventDefault();
+});
+
+function userTicketInfo() {
+  const user = username.value;
+  const usernameGithub = github.value;
+
+  congratsUsername.innerHTML = user;
+  ticketAvatar.src = ""
+  ticketUsername.innerHTML = user;
+  ticketGithub.innerHTML = usernameGithub;
+
+  if (userAvatarData) {
+    ticketAvatar.src = userAvatarData;
+  } else {
+    ticketAvatar.src = "./assets/images/image-avatar.jpg";
+  }
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const emailValue = email.value;
+
+  if (emailValue === "" || !emailValue.includes("@")) {
+    alert("Please, submit a valid email!");
+    return;
+  }
+
+  formContainer.style.display = "none";
+  ticketContainer.style.display = "flex";
+
+  userTicketInfo();
 });

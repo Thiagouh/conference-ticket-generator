@@ -6,12 +6,12 @@
 
 :root {
   --neutral-0: hsl(0, 0%, 100%);
-  --neutral-300: hsl(252, 6%, 83%);
+  --neutral-300: hsl(255, 2%, 53%);
   --neutral-500: hsl(245, 15%, 58%, 0.5);
   --neutral-700: hsl(245, 19%, 35%, 0.5);
   --neutral-900: hsl(248, 70%, 10%);
   --orange-500: hsl(7, 88%, 67%);
-  --orange-700: hsl(7, 86%, 67%);
+  --orange-700: hsl(7, 71%, 60%);
   --gradient-text: linear-gradient(
     90deg,
     hsl(7, 86%, 67%) 0%,
@@ -41,16 +41,12 @@ body {
   background-position: center top, 70% 50%, 100% 3%, bottom left, center top;
 }
 
-.hidden {
-  display: none;
-}
-
 /* =============================================
    TICKET FORM STYLE
    ============================================= */
 
 .form-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -113,8 +109,8 @@ body {
 }
 
 .avatar-upload__input {
-  opacity: 0;
   position: absolute;
+  opacity: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -200,7 +196,7 @@ body {
   font-size: large;
   color: var(--neutral-0);
   background-color: var(--neutral-700);
-  transition: background-color ;
+  transition: background-color;
 }
 
 .form__group-fullname input:hover,
@@ -211,13 +207,19 @@ body {
 
 .form__submit {
   margin: 1rem 0;
-  padding: 1rem;
-  border: 5px solid var(--orange-700);
+  padding: 1.5rem;
+  border: 0;
   border-radius: 0.7rem;
   font-weight: bold;
   font-size: large;
   color: var(--neutral-900);
   background-color: var(--orange-500);
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.form__submit:hover {
+  background-color: var(--orange-700);
 }
 
 /* =============================================
@@ -225,11 +227,133 @@ body {
    ============================================= */
 
 .ticket-container {
-  display: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.congratulations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.congratulations__title {
+  width: 60%;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--neutral-0);
+}
+
+.congratulations__username {
+  background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.congratulations__subtitle {
+  width: 60%;
+  margin: 2rem 6rem;
+  text-align: center;
+  font-size: var(--font-size-label);
+}
+
+.ticket {
+  position: relative;
+}
+
+.ticket__pattern {
+  width: 100%;
+}
+
+.ticket__info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  bottom: 0%;
+}
+
+.ticket__header {
+  display: flex;
+  align-items: start;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.ticket__logo-mark {
+  padding-top: 0.4rem;
+}
+
+.ticket__header-text {
+  margin-left: 1rem;
+}
+
+.ticket__title {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.ticket__location-data {
+  margin-top: 1rem;
+  font-size: var(--font-size-label);
+}
+
+.ticket__body {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ticket__body-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.ticket__username {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.ticket__github {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.ticket__avatar {
+  height: 4rem;
+  width: 4rem;
+  margin-right: 1rem;
+  border: 1px solid var(--neutral-500);
+  border-radius: 0.7rem;
+  background-color: var(--neutral-700);
+}
+
+.ticket__code {
+  position: absolute;
+  font-size: 2rem;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(90deg);
+  color: var(--neutral-300);
 }
 
 /* =============================================
-   MEDIA QUERYS
+   MEDIA QUERY
    ============================================= */
 
 @media (min-width: 376px) and (max-width: 768px) {
@@ -255,6 +379,56 @@ body {
     width: 90%;
     max-width: 30rem;
   }
+
+  .ticket {
+    width: 90%;
+  }
+
+  .congratulations {
+    margin: 0;
+  }
+
+  .congratulations h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    width: 100%;
+  }
+
+  .congratulations p {
+    margin: 0;
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+    width: 100%;
+  }
+
+  .ticket__header {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .ticket__title {
+    font-size: 1.9rem;
+  }
+
+  .ticket__location-data {
+    margin-top: 0.5rem;
+    font-size: 16px;
+  }
+
+  .ticket__body {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .ticket__avatar {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  .ticket__code {
+  font-size: 1.8rem;
+  right: 0;
+}
 }
 
 @media (max-width: 375px) {
@@ -279,4 +453,54 @@ body {
   .form__submit {
     width: 90%;
   }
+
+  .ticket {
+    width: 90%;
+  }
+
+  .congratulations {
+    margin: 0;
+  }
+
+  .congratulations h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    width: 100%;
+  }
+
+  .congratulations p {
+    margin: 0;
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+    width: 100%;
+  }
+
+  .ticket__header {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .ticket__title {
+    font-size: 1.5rem;
+  }
+
+  .ticket__location-data {
+    margin-top: 0.5rem;
+    font-size: 12px;
+  }
+
+  .ticket__body {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .ticket__avatar {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  .ticket__code {
+    font-size: 1.2rem;
+  right: 0rem;
+}
 }
